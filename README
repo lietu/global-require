@@ -1,0 +1,72 @@
+global-require v0.0.1, a require() function that works the same way in both node.js and browser-side
+
+
+
+What is this?
+-------------
+
+The simple idea is to give a decent enough require() function, which can be used both in the browser and node.js, with
+a minimal amount of work required.
+
+
+
+Why is this?
+------------
+
+When I thought I could use the same code in both node.js and the browser side, while still wanting to use require(), I
+was looking for some libraries to do this with. I found a few tools for this, one didn't work, and another looked so
+annoying to use, that I didn't even bother to try it out.
+
+
+
+Where is it?
+------------
+
+The code, examples and more information should be available at http://github.com/lietu/global-require
+
+
+
+How to use it?
+--------------
+
+First you need to install it, you can just download it from http://github.com/lietu/global-require .. or hopefully get
+it with npm, by running:
+
+npm install global-require
+
+... or:
+
+npm install global-require -g
+
+Examples of usage are in the examples folder of the repository, but here's a summary.
+On files that you want to use require() in, you need this at the top:
+
+	// If we're in node.js, we need to require the module before it's available
+	if( typeof global==='undefined' ) {
+		var global = require('global-require'); // Tell node.js to load the global-require module
+		global.setRequire( require ); // Give global-require the ability to load things relative to the main file
+	}
+
+On files that you want to require(), and you want to export things from, you need to use module.exports the node way.
+
+To require() something with global-require once it's loaded:
+
+	global.require({aName: './module-file.js'}, function() {
+		console.log( 'Module is now loaded.' );
+		global.aName.doSomething();
+	});
+
+
+
+It is still unclear to me how to use it, can you tell me more?
+--------------------------------------------------------------
+
+Look at the examples, if you don't understand them, I cannot help you.
+
+
+
+How about licensing?
+--------------------
+
+Short answer: new BSD, and MIT
+Long answer: Read the LICENSE -file

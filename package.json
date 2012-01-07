@@ -1,0 +1,21 @@
+{
+    "name": "global-require",
+    "description": "Provide a require() function that is easy to use in a browser and Node.js, without any code changes or wrappers.",
+    "version": "0.0.1",
+    "homepage": "http://github.com/lietu/global-require",
+    "author": "Janne Enberg <janne.enberg@lietu.net> (http://github.com/lietu)",
+    "licenses": [
+        {
+            "type": "BSD",
+            "url": "https://github.com/jrburke/lietu/blob/master/LICENSE"
+        },
+        {
+            "type": "MIT",
+            "url": "https://github.com/jrburke/lietu/blob/master/LICENSE"
+        }
+    ],
+    "main": "./global-require.js",
+    "engines": {
+        "node": ">=0.6.0"
+    }
+}
